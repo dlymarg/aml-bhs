@@ -4,4 +4,6 @@ A collection of Python files that were used in Towson University's Applied Mathe
 # Geocoding
 One of our tasks was to convert a .csv file that consisted of over 20,000 addresses into a set of GPS coordinates. This conversion is known as geocoding. Using the Google Maps API, we were able to geocode over 97% of all addresses provided to us.
 
-In this folder, you will find a sample list of addresses, a Python file that performs the process of geocoding, and output .csv files. Packages required: googlemaps (requires a key from the Google Maps API to work), csv
+In this folder, you will find a sample list of addresses (sample.csv), a Python file that performs the process of geocoding (geocoding.py), and output .csv files (sample_bad_coordinates.csv, sample_good_coordinates.csv, sample_no_coordinates.csv). 
+
+Packages required: googlemaps (requires a key from the Google Maps API to work), csv
