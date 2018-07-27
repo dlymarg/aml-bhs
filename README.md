@@ -24,6 +24,10 @@ The Python file generates a graph composed of multiple donors' profiles (donors_
 ![Before aggregating](/images/bells_graph.png)
 ![After aggregating](/images/aggregated_bells.png)
 
+These continuous functions can be plotted onto a single set of axes for however many donors desired (image available in /images/donors_donation_behaviors.png)
+
+![Multiple profiles](/images/donors_donation_behaviors.png)
+
 We are continuing to work with data visualization of donor profiles in the fall 2018 semester. To understand how donors can be classified into several groups based on behavior, we will be implementing the K-means clustering algorithm, which is a data analysis method that enables us to assign labels to donors who have similar behavior.
 
 Packages required: csv, numpy, matplotlib
