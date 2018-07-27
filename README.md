@@ -15,11 +15,16 @@ The status of all donors can be compiled into a single file using donor_id_sorti
 Packages required: googlemaps (requires a key from the Google Maps API to work), csv
 
 # Donor Grouping
-The AML sought to find ways to categorize donors based on their donation history. One of the ways was to create functions that would not only capture how much a donor donated at a given time, but also capture how active a donor was over a span of donations. Each function generated was considered a donor profile. The main goals were to highlight potential periods of inactivity and to distinguish similar donation amounts and times by converting the discrete data from the donor database into a continuous function. For example, if a donor donated 25 dollars in March 2013 and did not make another donation until May 2016, it was important to capture this period of inactivity; drawing a line segment connecting the two donation amounts would not capture this inactivity. Instead, smooth, bell-shaped functions were created to showcase donors' donation behaviors.
+The AML sought to find ways to categorize donors based on their donation history. One of the ways was to create functions that would not only capture how much a donor donated at a given time, but also capture how active a donor was over a span of donations. Each function generated was considered a donor profile. The main goals were to highlight potential periods of inactivity and to distinguish similar donation amounts and times by converting the discrete data from the donor database into a continuous function. For example, if a donor donated 25 dollars in March 2013 and did not make another donation until May 2016, it was important to capture this period of inactivity.
 
-In this repository, you will find a sample list of donor IDs accompanied with days a donation was made and donation amounts (days_gift_amounts) and a Python file that creates the donor profiles (functions.py).
+In this repository, you will find a sample list of donor IDs accompanied with days a donation was made and donation amounts (days_gift_amounts.csv) and a Python file that creates the donor profiles (functions.py).
 
-The Python file generates a graph composed of multiple donors' profiles. Ultimately, each function is composed of a piecewise quartic function with roots that are 200 units apart and have a value of 0 outside of the bell. Once functions were generated for one donor, all bell functions were aggregated to generate one smooth, continuous function. At this stage, this smooth function is considered a donor profile.
+The Python file generates a graph composed of multiple donors' profiles (donors_donation_behaviors.png). Ultimately, each function is composed of piecewise quartic functions (or bell functions) that are nonzero values between the roots and have a value of 0 outside of the bell. Once bell functions were generated for one donor, all bell functions were aggregated to generate one smooth, continuous function. At this stage, this smooth function is considered a donor profile. The following graphs show a series of piecewise bell functions and a single continuous function composed of aggregated bell functions, respectively, for a single donor. They are available in this repository under /images/bells_graph.png and /images/aggregated_bells.png
+
+![Before aggregating](/images/bells_graph.png)
+![After aggregating](/images/aggregated_bells.png)
+
+We are continuing to work with data visualization of donor profiles in the fall 2018 semester. To understand how donors can be classified into several groups based on behavior, we will be implementing the K-means clustering algorithm, which is a data analysis method that enables us to assign labels to donors who have similar behavior.
 
 Packages required: csv, numpy, matplotlib
 
