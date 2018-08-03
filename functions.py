@@ -2,9 +2,11 @@ import csv
 import numpy as np
 import matplotlib.pyplot as plt
 
+# aggregates all bell-shaped piecewise functions to generate one smooth curve
 def sigma(funct_list, x):
     return sum(f(x) for f in funct_list)
 
+# generates a bell-shaped piecewise function, given two roots and a constant
 def bell(t1, t3, c):
     def f(t):
         if t <= t3 and t >= t1:
@@ -13,6 +15,7 @@ def bell(t1, t3, c):
             return(0)
     return f
 
+# generates the derivative of the bell-shaped piecewise function
 def d_bell(t1, t3, c):
     def g(t):
         if t <= t3 and t >= t1:
@@ -25,16 +28,18 @@ donations = open('days_gift_amount.csv', 'r')
 reader = csv.reader(donations, delimiter=',')
 
 offset = 100
+# these store function values with donor IDs as keys
 profiles = dict()
 d_profiles = dict()
 
+# creates the points that will be plotted in the final graph
 for row in reader:
     funct_list = []
     d_funct_list = []
     x1 = []
     x3 = []
     b = []
-    id_num = int(row[0])
+    id_num = row[0]
     dates_list = row[1]
     dates = dates_list.split(",")
     amounts_list = row[2]
@@ -66,11 +71,12 @@ for row in reader:
 donor_list = list(profiles.keys())
 d_donor_list = list(d_profiles.keys())
 
+# plots donor profiles
 fx = plt.subplot(2, 1, 1)
 fprimex = plt.subplot(2, 1, 2)
 
-for j in range(2, 23):
-    # accounts for first 20-ish donors with >5 donations
+for j in range(1, 15):
+    # accounts for approximately 20 donors with >5 donations
     x = np.arange(-100, 1000, 1)
     y = []
     dy = []
@@ -84,9 +90,7 @@ fx.set_title('Donor Donation Behavior')
 fx.set_ylabel('Donation rate ($/day)')
 fprimex.set_ylabel('Rate of Donation Rate (\$/day$^2$)')
 fprimex.set_xlabel('Time (days)')
-plt.savefig('2 through 23 donors donation behavior.png')
+plt.savefig('donors_donation_behaviors.png')
 plt.show()
 
 donations.close()
-
-# potential idea: use a while loop to graph different functions
