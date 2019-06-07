@@ -21,11 +21,15 @@ Packages required: googlemaps (requires a key from the Google Maps API to work),
 # Donor Grouping
 The AML sought to find ways to categorize donors based on their donation history. By evaluating different donors' donation histories, the AML can identify existing or previous donors that may be more likely to provide a donation to the BHS. The main goals in evaluating donation history were to highlight potential periods of inactivity and to distinguish similar donation amounts and times. One of the ways was to create functions that would not only capture how much a donor donated at a given time, but also capture how active a donor was over a span of donations. One of the primary goals was to distinguish similar donation amounts and times by converting the discrete data from the donor database into a continuous function. For example, if a donor donated 25 dollars in March 2013 and did not make another donation until May 2016, it was important to capture this period of inactivity. Smooth, bell-shaped functions were created to showcase donors' donation behaviors and were defined as the following:
 
-<img align="center" src="/images/piecewise_fcn.png" width="500">
+<p align="center">
+  <img src="/images/piecewise_fcn.png" width="500">
+</p>
 
 In this piecewise function, _t_1_ and _t_3_ define the width of a bell. The coefficient _c_ was solved using the following integral, where _d_ is donation amount:
 
-<img alight="center" src="/images/integral_c.png" width="500">
+<p align="center">
+  <img align="center" src="/images/integral_c.png" width="500">
+</p>
 
 Here is an example of the graph the piecewise function creates for a single donor:
 
