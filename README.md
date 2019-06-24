@@ -47,6 +47,7 @@ Multiple donor profiles can be graphed. Ultimately, donor profiles were generate
 
 In this repository, you will find a sample list of donor IDs accompanied with days a donation was made and donation amounts (`days_gift_amounts.csv`) and a Python file that creates the donor profiles (`functions.py`).
 
+# Future Work
 To understand how donors can be classified into several groups based on behavior, the [K-means clustering algorithm](https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1) --- a data analysis method that enables us to assign labels to donors who have similar behavior --- can be applied.
 
 Packages required: csv, numpy, matplotlib
